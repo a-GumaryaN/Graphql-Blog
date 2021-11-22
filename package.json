@@ -1,0 +1,9 @@
+{
+  "name": "Graphql-Blog",
+  "version": "1.0.0",
+  "description": "a simple blog with nodejs Graphql typescript mongodb mongoose",
+  "main": "server.js",
+  "repository": "https://github.com/a-GumaryaN/Graphql-Blog.git",
+  "author": "GumaryaN",
+  "license": "ISC"
+}

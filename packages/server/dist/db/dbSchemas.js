@@ -1,14 +1,13 @@
-import { Schema, model } from "mongoose";
-
-import { person, post, Comment } from "../interfaces/interfaces";
-
-const commentSchema = new Schema<Comment>({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.commentModel = exports.postModel = exports.personModel = void 0;
+var mongoose_1 = require("mongoose");
+var commentSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
     content: { type: String, required: true }
 });
-
-const postSchema = new Schema <post>({
+var postSchema = new mongoose_1.Schema({
     title: { type: String, required: true },
     content: { type: String, required: true },
     link: { type: String, required: false },
@@ -16,8 +15,7 @@ const postSchema = new Schema <post>({
     averageLikes: { type: Number, required: false },
     comments: [Comment]
 });
-
-const personSchema = new Schema<person>({
+var personSchema = new mongoose_1.Schema({
     _id: { type: String, required: true },
     password: { type: String, required: true },
     fullName: {
@@ -28,8 +26,6 @@ const personSchema = new Schema<person>({
     posts: [{ type: postSchema }],
     description: { type: String, required: false }
 });
-
-export const personModel = model("person",personSchema);
-export const postModel = model("person", postSchema);
-export const commentModel = model("person", commentSchema);
-
+exports.personModel = (0, mongoose_1.model)("person", personSchema);
+exports.postModel = (0, mongoose_1.model)("person", postSchema);
+exports.commentModel = (0, mongoose_1.model)("person", commentSchema);

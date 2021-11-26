@@ -1,1 +1,3 @@
 /packages/server/node_modules
+/packages/server/dist/test.js
+/packages/server/src/test.ts

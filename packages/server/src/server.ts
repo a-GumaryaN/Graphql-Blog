@@ -1,7 +1,7 @@
 import * as express  from "express";
 const app=express();
 
-const dbUrl="mongodb://localhost:27017/GraphBlog";
+const dbUrl="mongodb://localhost:27017/graphBlog";
 
 import { connect } from "mongoose";
 
@@ -13,7 +13,7 @@ connect(dbUrl).then(()=>{
     console.log(`successfully connected to the database...`);
 });
 
-import { graphSchema } from "./graphql/schemas/graphSchemas";
+import { graphSchema } from "./graphql/graphqlmodule";
 
 app.use('/', graphqlHTTP({
     schema:graphSchema,

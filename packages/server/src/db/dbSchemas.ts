@@ -8,28 +8,27 @@ const commentSchema = new Schema<Comment>({
     content: { type: String, required: true }
 });
 
-const postSchema = new Schema <post>({
+const postSchema = new Schema<post>({
+    ownerUsername: { type: String, required: true },
     title: { type: String, required: true },
     content: { type: String, required: true },
     link: { type: String, required: false },
-    keyword: [{ type: String, required: true }],
     averageLikes: { type: Number, required: false },
-    comments: [Comment]
+    // keyword: [{ type: String, required: true }],
+    // comments: [commentSchema]
 });
 
 const personSchema = new Schema<person>({
-    _id: { type: String, required: true },
+    _id: { type: String, required: true },//id is username
     password: { type: String, required: true },
-    fullName: {
-        firstName: { type: String, required: false },
-        lastName: { type: String, required: false }
-    },
+    firstName: { type: String },
+    lastName: { type: String },
     age: { type: Number, required: false },
     posts: [{ type: postSchema }],
     description: { type: String, required: false }
 });
 
-export const personModel = model("person",personSchema);
-export const postModel = model("person", postSchema);
-export const commentModel = model("person", commentSchema);
+export const personModel = model("person", personSchema);
+export const postModel = model("post", postSchema);
+export const commentModel = model("comment", commentSchema);
 
